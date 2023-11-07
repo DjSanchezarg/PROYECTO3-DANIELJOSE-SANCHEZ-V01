@@ -62,6 +62,7 @@ export default function Index() {
     setData({ ...data, poliza: poliza });
   };
 
+  // Captura datos para  historial
   const guardaHistorial = () => {
     const cotizacion = {
       fechaCotizacion: new Date().toLocaleString(),
@@ -71,6 +72,7 @@ export default function Index() {
       poliza: data.poliza.toFixed(2),
     };
 
+    //Envia Datos al localStore para generar historial
     const historialCotizaciones =
       JSON.parse(localStorage.getItem("historialCotizaciones")) || [];
     historialCotizaciones.push(cotizacion);
@@ -78,8 +80,6 @@ export default function Index() {
       "historialCotizaciones",
       JSON.stringify(historialCotizaciones)
     );
-
-    console.log(setDatosPropiedad.factor);
   };
 
   return (
@@ -114,6 +114,7 @@ export default function Index() {
           ))}
         </select>
 
+         {/* //Verificador de informacion no borrar*/}
         {/* <p>Factor segun Propiedad: {selectedPropiedad}</p>
         <p>Texto seleccionado: {selectedTextPropiedad}</p> */}
 
@@ -134,6 +135,8 @@ export default function Index() {
             </option>
           ))}
         </select>
+
+         {/* //Verificador de informacion no borrar*/}
         {/* <p>Factor segun Ubicacion: {selectedUbicacion}</p>
         <p>Texto seleccionado: {selectedTextUbicacion}</p> */}
 

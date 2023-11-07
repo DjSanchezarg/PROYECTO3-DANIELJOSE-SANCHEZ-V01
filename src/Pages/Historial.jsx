@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function Historial() {
+  // Captura dato de localStorage
   const [historialCotizaciones, sethistorialCotizaciones] = useState(
     JSON.parse(localStorage.getItem("historialCotizaciones")) ?? {
       fechaCotizacion: "",
@@ -11,16 +12,6 @@ export default function Historial() {
       poliza: "",
     }
   );
-
-  const cotizando = [
-    {
-      fechaCotizacion: "4/11/2023, 17:59:02",
-      propiedad: "P.H.",
-      ubicacion: "Tandil",
-      metrosCuadrados: "25",
-      poliza: "978.98",
-    },
-  ];
 
   return (
     <div>
@@ -54,7 +45,6 @@ export default function Historial() {
             {" "}
             <button className="button button-outline">VOLVER</button>{" "}
           </Link>
-          {/* <p> hola {historialCotizaciones.fechaCotizacion}</p> */}
         </div>
       </div>
     </div>
