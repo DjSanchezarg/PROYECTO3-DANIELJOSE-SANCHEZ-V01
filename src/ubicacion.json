@@ -1,0 +1,22 @@
+[
+        {
+        "categoria": "ubicacion",
+        "tipo": "CABA",
+        "factor": 1.13
+    },
+    {
+        "categoria": "ubicacion",
+        "tipo": "Tandil",
+        "factor": 1.04
+    },
+    {
+        "categoria": "ubicacion",
+        "tipo": "Costa Atlántica",
+        "factor": 1.29
+    },
+    {
+        "categoria": "ubicacion",
+        "tipo": "Patagonia",
+        "factor": 1.00
+    }
+]
