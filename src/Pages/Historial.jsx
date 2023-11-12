@@ -28,14 +28,16 @@ export default function Historial() {
   return (
     <div>
       <div className="div-heatheHis">
+        <button onClick={borrarHistorial} className="button button-outline">
+          {" "}
+          Borrar Historial{" "}
+        </button>
+        <h1 className="center separador">Ver Historial📋</h1>
         <Link to="/index">
           {" "}
           <button className="button button-outline">VOLVER</button>{" "}
         </Link>
       </div>
-      <h1 className="center separador">Ver Historial📋</h1>
-
-
 
       <div className=" center div-cotizador">
         <table>
@@ -60,12 +62,7 @@ export default function Historial() {
             ))}
           </tbody>
         </table>
-        <div className="center separador">
-          <button onClick={borrarHistorial} className="button button-outline">
-            {" "}
-            Borrar Historial{" "}
-          </button>
-        </div>
+        <div className="center separador"></div>
       </div>
     </div>
   );

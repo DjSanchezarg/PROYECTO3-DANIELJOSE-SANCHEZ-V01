@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import jsonUbicacion from "../ubicacion.json";
 import jsonPropiedad from "../propiedad.json";
 
+
 export default function Index() {
   // -----------------Obtenemos datos desde Json
   const [datosPropiedad, setDatosPropiedad] = useState([]);
@@ -108,107 +109,114 @@ export default function Index() {
     <div className="div-ContePricipal">
       <h1 className="center separador">Seguros del hogar 🏛️🕌🏡</h1>
 
-      <div className=" center div-cotizador">
-        <h2 className="center separador">Completa los datos solicitados</h2>
+      <div className=" imagenVentana">
+        <div className=" center div-cotizador">
+          {/* <img src={marco} alt="Marco" /> */}
+          <h2 className="center separador">Completa los datos solicitados</h2>
 
-        {/* Selector tipo de propiedad */}
-        <label htmlFor="propiedad">
-          <span className="list-item-circle">1</span>Selecciona el tipo de
-          propiedad
-        </label>
+          {/* Selector tipo de propiedad */}
+          <label htmlFor="propiedad">
+            <span className="list-item-circle">1</span>Selecciona el tipo de
+            propiedad
+          </label>
 
-        <select
-          value={selectedPropiedad}
-          onChange={propiedadSelectChange}
-          id="propiedad"
-          className={faltaDatos || !selectedPropiedad == "" ? "" : "bordeRojo"}
-        >
-          <option value="" disabled>
-            ...
-          </option>
-          {datosPropiedad.map(({ factor, tipo }, id) => (
-            <option key={id} value={factor}>
-              {" "}
-              {tipo}{" "}
+          <select
+            value={selectedPropiedad}
+            onChange={propiedadSelectChange}
+            id="propiedad"
+            className={
+              faltaDatos || !selectedPropiedad == "" ? "" : "bordeRojo"
+            }
+          >
+            <option value="" disabled>
+              ...
             </option>
-          ))}
-        </select>
+            {datosPropiedad.map(({ factor, tipo }, id) => (
+              <option key={id} value={factor}>
+                {" "}
+                {tipo}{" "}
+              </option>
+            ))}
+          </select>
 
-        {/* //Verificador de informacion no borrar*/}
-        {/* <p>Factor segun Propiedad: {selectedPropiedad}</p>
+          {/* //Verificador de informacion no borrar*/}
+          {/* <p>Factor segun Propiedad: {selectedPropiedad}</p>
         <p>Texto seleccionado: {selectedTextPropiedad}</p> */}
 
-        {/* Selector ubicacion */}
-        <label htmlFor="ubicacion">
-          <span className="list-item-circle">2</span>Selecciona su ubicación
-        </label>
+          {/* Selector ubicacion */}
+          <label htmlFor="ubicacion">
+            <span className="list-item-circle">2</span>Selecciona su ubicación
+          </label>
 
-        <select
-          value={selectedUbicacion}
-          onChange={ubicacionSelectChange}
-          id="ubicacion"
-          className={faltaDatos || !selectedUbicacion == "" ? "" : "bordeRojo"}
-        >
-          <option value="" disabled>
-            ...
-          </option>
-          {datosUbicacion.map(({ factor, tipo }, id) => (
-            <option key={id} value={factor}>
-              {" "}
-              {tipo}{" "}
+          <select
+            value={selectedUbicacion}
+            onChange={ubicacionSelectChange}
+            id="ubicacion"
+            className={
+              faltaDatos || !selectedUbicacion == "" ? "" : "bordeRojo"
+            }
+          >
+            <option value="" disabled>
+              ...
             </option>
-          ))}
-        </select>
+            {datosUbicacion.map(({ factor, tipo }, id) => (
+              <option key={id} value={factor}>
+                {" "}
+                {tipo}{" "}
+              </option>
+            ))}
+          </select>
 
-        {/* //Verificador de informacion no borrar*/}
-        {/* <p>Factor segun Ubicacion: {selectedUbicacion}</p>
+          {/* //Verificador de informacion no borrar*/}
+          {/* <p>Factor segun Ubicacion: {selectedUbicacion}</p>
         <p>Texto seleccionado: {selectedTextUbicacion}</p> */}
 
-        {/* Registramos los metros cuadradoss */}
-        <label htmlFor="metros2">
-          <span className="list-item-circle">3</span>Ingresa los Metros
-          cuadrados:
-        </label>
-        <input
-          className={
-            faltaDatos || parseFloat(selectMetros2) >= 20 ? "" : "bordeRojo"
-          }
-          type="number"
-          id="metros2"
-          value={selectMetros2}
-          onChange={metrosSeleccionados}
-          min="20"
-          max="500"
-          required
-        />
+          {/* Registramos los metros cuadradoss */}
+          <label htmlFor="metros2">
+            <span className="list-item-circle">3</span>Ingresa los Metros
+            cuadrados:
+          </label>
+          <input
+            className={
+              faltaDatos || parseFloat(selectMetros2) >= 20 ? "" : "bordeRojo"
+            }
+            type="number"
+            id="metros2"
+            value={selectMetros2}
+            onChange={metrosSeleccionados}
+            min="20"
+            max="500"
+            required
+          />
 
-        <div className="center separador">
-          <button onClick={cotizarPoliza} className="button button-outline">
-            {" "}
-            Cotizar{" "}
-          </button>
-        </div>
-
-        <div className="center separador">
-          <p className="importe">
-            Precio estimado: ${" "}
-            <span id="valorPoliza">{data.poliza.toFixed(2)}</span>
-            <span
-              onClick={guardaHistorial}
-              title="Guardar en historial"
-              className={data.poliza.toFixed(2) > 0 ? "guardar" : "ocultar "}
-            >
-              💾 Guardar
-            </span>
-          </p>
-        </div>
-
-        <div className="historial" >
-          <Link to="/historial">
-            <button className="historial button button-outline">
-              Ver Historia<span>📋</span>
+          <div className="center separador">
+            <button onClick={cotizarPoliza} className="button button-outline">
+              {" "}
+              Cotizar{" "}
             </button>
-          </Link>
+          </div>
+
+          <div className="center separador">
+            <p className="importe">
+              Precio estimado: ${" "}
+              <span id="valorPoliza">{data.poliza.toFixed(2)}</span>
+              <span
+                onClick={guardaHistorial}
+                title="Guardar en historial"
+                className={data.poliza.toFixed(2) > 0 ? "guardar" : "ocultar "}
+              >
+                💾 Guardar
+              </span>
+            </p>
+          </div>
+
+          <div className="historial">
+            <Link to="/historial">
+              <button className="historial button button-outline">
+                Ver Historia<span>📋</span>
+              </button>
+            </Link>
+          </div>
         </div>
       </div>
     </div>

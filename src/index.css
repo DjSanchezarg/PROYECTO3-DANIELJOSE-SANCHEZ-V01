@@ -7,7 +7,7 @@
 }
 
 :root{
-    width: 80%;
+    width: 100%;
 }
 
 html {
@@ -23,8 +23,14 @@ html {
      display: flex;
      flex-direction: column;
      margin: 0 auto;
+     position: relative;
+    
 }
 
+
+.heatherPrn {
+    position: relative;
+  }
 
 .center {
     text-align: center;
@@ -32,9 +38,10 @@ html {
 }
 
 h1 {
-    font-weight: 400;
+    font-weight: 2em;
     color: black;
     border-radius: 30px;
+
 }
 
 label {
@@ -48,7 +55,7 @@ label {
     background-color: white;
     padding: 10px;
     border-color: rgb(146, 29, 29);
-    box-shadow: 26px 28px 15px -8px rgba(0,0,0,0.15);
+    box-shadow: 26px 28px 15px -8px rgba(0, 0, 0, 0.915);
     border-radius: 2rem;
 }
 
@@ -57,18 +64,50 @@ div.historial {
 }
 
 .div-heatheHis {
+    padding-left: 20px;
     cursor: pointer;
     display: flex;
-    float: right;
-    padding: 6px;
-    border-radius: 25px;
-    width: 100px;
+    align-items: center;
+    justify-content: space-between;
+    /* float: right; */
+    /* padding: 12px; */
+    border-radius: 12px;
+    box-shadow: brown;
+    border: solid 1px;
+    /* width: 100px; */
+    margin: auto;
+    max-width: 900px;
+    box-shadow: 26px 28px 15px -8px rgb(0 0 0 / 58%);
+    background-color: white;
+    margin-bottom: 10px;
+    padding-right: 20px;
 }
 
 
 div.historial span {
     text-align: center !important;
     font-size: xx-large;
+}
+
+
+.imagenVentana{
+    
+    position: relative;
+    background-image: url(/src/images/home.jpg);
+    width: 90%;
+    background-size: cover;
+    background-position: center;
+    /* background-repeat: no-repeat; */
+    /* margin: 0; */
+    padding: 0;
+    height: 80vh;
+    display: flex;
+    border-radius: 9px;
+}
+
+.img{
+
+width: 30%;
 }
 
 select, input {
@@ -133,4 +172,9 @@ button:active {
     
    
 }
-  
+
+img {
+    width: 100%;
+    height: auto;
+   
+}
