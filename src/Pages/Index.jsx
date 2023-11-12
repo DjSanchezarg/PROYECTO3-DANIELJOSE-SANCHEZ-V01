@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import jsonUbicacion from "../ubicacion.json";
 import jsonPropiedad from "../propiedad.json";
 
-
 export default function Index() {
   // -----------------Obtenemos datos desde Json
   const [datosPropiedad, setDatosPropiedad] = useState([]);
@@ -21,6 +20,7 @@ export default function Index() {
   const [selectedTextPropiedad, setselectedTextPropiedad] = useState(""); // Estado para almacenar el texto seleccionado
   const propiedadSelectChange = (e) => {
     //Valor factor Selector
+
     const selectedIndex = e.target.selectedIndex;
     const selectedOption = e.target.value; // Obtener el valor seleccionado del evento
     setSelectedPropiedad(selectedOption); // Actualizar el estado con el valor seleccionado
@@ -62,19 +62,17 @@ export default function Index() {
       ? true
       : false;
 
-  // -------------------------Determina si falta cargar datos
-  const [faltaDatos, setFaltaDatos] = useState(true);
-
   // -------------------------Consulta si los datos estan completos
   const cotizarPoliza = () => (datosCompletos() ? cotizo() : alarma());
 
-  // -------------------------Envia cambio de bordes selectores vacio
+  // -------------------------Determina si falta cargar datos
+  const [faltaDatos, setFaltaDatos] = useState(true);
   const alarma = () => {
-    setFaltaDatos(false);
+    // Envia cambio de bordes selectores vacio
+    setFaltaDatos();
   };
-
-  // -------------------------genera la cotizacion
   const cotizo = () => {
+    // -genera la cotizacion
     setFaltaDatos(true); //Si puede cotizar quita alarma de selector vacio
 
     const poliza =
@@ -85,7 +83,7 @@ export default function Index() {
     setData({ ...data, poliza: poliza });
   };
 
-  // Captura datos para  historial
+  // ---------------------Captura datos para  historial
   const guardaHistorial = () => {
     const cotizacion = {
       fechaCotizacion: new Date().toLocaleString(),
@@ -103,11 +101,12 @@ export default function Index() {
       "historialCotizaciones",
       JSON.stringify(historialCotizaciones)
     );
+    window.location.reload(); //resetea datos
   };
 
   return (
     <div className="div-ContePricipal">
-      <h1 className="center separador">Seguros del hogar 🏛️🕌🏡</h1>
+      <h1 className="center separador">Seguros del hogar 🏛️🏡🏢⛺</h1>
 
       <div className=" imagenVentana">
         <div className=" center div-cotizador">
@@ -128,9 +127,15 @@ export default function Index() {
               faltaDatos || !selectedPropiedad == "" ? "" : "bordeRojo"
             }
           >
-            <option value="" disabled>
-              ...
-            </option>
+            {faltaDatos || !selectedPropiedad == "" ? (
+              <option value="" disabled>
+                ...
+              </option>
+            ) : (
+              <option value="" disabled>
+                Cargar Datos por favor
+              </option>
+            )}
             {datosPropiedad.map(({ factor, tipo }, id) => (
               <option key={id} value={factor}>
                 {" "}
@@ -156,9 +161,18 @@ export default function Index() {
               faltaDatos || !selectedUbicacion == "" ? "" : "bordeRojo"
             }
           >
-            <option value="" disabled>
-              ...
-            </option>
+            {faltaDatos || !selectedUbicacion == "" ? (
+              <option value="" disabled>
+                {" "}
+                ...{" "}
+              </option>
+            ) : (
+              <option className="mensajeVacio" value="" disabled>
+                {" "}
+                Cargar Datos por favor{" "}
+              </option>
+            )}
+
             {datosUbicacion.map(({ factor, tipo }, id) => (
               <option key={id} value={factor}>
                 {" "}
@@ -172,22 +186,31 @@ export default function Index() {
         <p>Texto seleccionado: {selectedTextUbicacion}</p> */}
 
           {/* Registramos los metros cuadradoss */}
-          <label htmlFor="metros2">
-            <span className="list-item-circle">3</span>Ingresa los Metros
-            cuadrados:
-          </label>
-          <input
-            className={
-              faltaDatos || parseFloat(selectMetros2) >= 20 ? "" : "bordeRojo"
-            }
-            type="number"
-            id="metros2"
-            value={selectMetros2}
-            onChange={metrosSeleccionados}
-            min="20"
-            max="500"
-            required
-          />
+
+          <div className="Div-SelectorNumero">
+            {!(faltaDatos || parseFloat(selectMetros2) >= 20) ? (
+              <p className="mensajeVacio">Cargar Datos por favor</p>
+            ) : (
+              ""
+            )}
+
+            <label htmlFor="metros2">
+              <span className="list-item-circle">3</span>Ingresa los Metros
+              cuadrados:
+            </label>
+            <input
+              className={
+                faltaDatos || parseFloat(selectMetros2) >= 20 ? "" : "bordeRojo"
+              }
+              type="number"
+              id="metros2"
+              value={selectMetros2}
+              onChange={metrosSeleccionados}
+              min="20"
+              max="500"
+              required
+            />
+          </div>
 
           <div className="center separador">
             <button onClick={cotizarPoliza} className="button button-outline">

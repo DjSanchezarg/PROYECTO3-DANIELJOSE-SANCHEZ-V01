@@ -25,6 +25,10 @@ export default function Historial() {
     }
   };
 
+  const irArriba = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <div>
       <div className="div-heatheHis">
@@ -62,7 +66,13 @@ export default function Historial() {
             ))}
           </tbody>
         </table>
-        <div className="center separador"></div>
+
+        <div className="center separador">
+          <button onClick={irArriba} className="button button-outline">
+            {" "}
+            Ir hacia arriba (menu){" "}
+          </button>
+        </div>
       </div>
     </div>
   );

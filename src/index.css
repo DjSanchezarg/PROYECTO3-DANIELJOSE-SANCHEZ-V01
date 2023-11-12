@@ -105,9 +105,8 @@ div.historial span {
     border-radius: 9px;
 }
 
-.img{
-
-width: 30%;
+.Div-SelectorNumero{
+   position: relative;
 }
 
 select, input {
@@ -151,6 +150,11 @@ button:active {
 
 .bordeRojo {
     border: 3px solid red!important;
+z-index: 0;
+width: 100%;
+padding: 9px;
+box-sizing: border-box;
+
   }
 
 .button {
@@ -177,4 +181,15 @@ img {
     width: 100%;
     height: auto;
    
+}.mensajeVacio{
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+position: absolute;
+top: 60%;
+left: 40%;
+transform: translate(-50%, -50%) ;
+z-index: 1;
+
+  
 }
