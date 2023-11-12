@@ -54,6 +54,7 @@ export default function Historial() {
               <th>Póliza mensual</th>
             </tr>
           </thead>
+
           <tbody>
             {historialCotizaciones.map((historialCotizaciones, id) => (
               <tr key={id}>

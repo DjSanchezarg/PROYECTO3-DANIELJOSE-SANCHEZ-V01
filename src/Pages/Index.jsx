@@ -49,6 +49,7 @@ export default function Index() {
   const metrosSeleccionados = ({ target }) => {
     setSelectMetros2(target.value);
   };
+
   const [data, setData] = useState({
     //-Captura Factor de multiplicacion y datos de poliza
     costoM2: 35.86,
