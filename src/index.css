@@ -11,17 +11,30 @@
 }
 
 html {
-    min-height: 100%;
-    background-color: rgb(126, 88, 161);
+    height: 100%;
+    background-color: rgb(191 19 16 / 14%);
 }
+
+.div-ContePricipal{
+    
+    text-align: center;       
+     max-width: 80%;
+     align-items: center;
+     display: flex;
+     flex-direction: column;
+     margin: 0 auto;
+}
+
 
 .center {
     text-align: center;
+    
 }
 
 h1 {
     font-weight: 400;
-    color: whitesmoke;
+    color: black;
+    border-radius: 30px;
 }
 
 label {
@@ -33,22 +46,25 @@ label {
     margin: auto;
     max-width: 900px;
     background-color: white;
-    /* margin-left: 5%;
-    margin-right: 5%; */
     padding: 10px;
-    border-color: whitesmoke;
+    border-color: rgb(146, 29, 29);
     box-shadow: 26px 28px 15px -8px rgba(0,0,0,0.15);
-    border-radius: 0.7rem;
+    border-radius: 2rem;
 }
 
 div.historial {
+    padding: 6px;
+}
+
+.div-heatheHis {
     cursor: pointer;
     display: flex;
     float: right;
     padding: 6px;
     border-radius: 25px;
-    width: 55px;
+    width: 100px;
 }
+
 
 div.historial span {
     text-align: center !important;
@@ -76,9 +92,9 @@ select, input {
     cursor: pointer;
 }
 
-/* .ocultar {
+ .ocultar {
     display: none;
-} */
+} 
 
 button:hover {
     color: whitesmoke !important;
@@ -92,3 +108,29 @@ button:active {
 .text-rojo {
     color: red !important;
 }
+
+
+.bordeRojo {
+    border: 3px solid red!important;
+  }
+
+.button {
+    position: 10px;
+
+}
+ 
+.list-item-circle {
+    border-radius: 100%!important;
+    background-color: #D81E05;
+    display: inline-block;
+    float: left;
+    padding: 5px 8px;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 1;
+    color: #fff;
+    margin: 37px 0px 3px 47px;
+    
+   
+}
+  

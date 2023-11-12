@@ -13,9 +13,29 @@ export default function Historial() {
     }
   );
 
+  // Función para borrar el historial del localStorage y del estado
+  const borrarHistorial = () => {
+    const confirmacion = window.confirm(
+      "¿Estás seguro de que quieres borrar el historial?\nLa información se borrará permantemente y no podrá recuperarla"
+    );
+
+    if (confirmacion) {
+      localStorage.removeItem("historialCotizaciones"); // Borra del localStorage
+      sethistorialCotizaciones([]); // Borra del estado
+    }
+  };
+
   return (
     <div>
-      <h1 className="center separador">Ver Historial 📋</h1>
+      <div className="div-heatheHis">
+        <Link to="/index">
+          {" "}
+          <button className="button button-outline">VOLVER</button>{" "}
+        </Link>
+      </div>
+      <h1 className="center separador">Ver Historial📋</h1>
+
+
 
       <div className=" center div-cotizador">
         <table>
@@ -41,10 +61,10 @@ export default function Historial() {
           </tbody>
         </table>
         <div className="center separador">
-          <Link to="/index">
+          <button onClick={borrarHistorial} className="button button-outline">
             {" "}
-            <button className="button button-outline">VOLVER</button>{" "}
-          </Link>
+            Borrar Historial{" "}
+          </button>
         </div>
       </div>
     </div>
