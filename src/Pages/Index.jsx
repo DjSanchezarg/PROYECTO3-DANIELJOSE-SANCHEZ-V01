@@ -182,7 +182,6 @@ export default function Index() {
             ))}
           </select>
 
-          {/* //Verificador de informacion no borrar*/}
           {/* <p>Factor segun Ubicacion: {selectedUbicacion}</p>
         <p>Texto seleccionado: {selectedTextUbicacion}</p> */}
 

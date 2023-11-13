@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-
 export default function Historial() {
   // Captura dato de localStorage
   const [historialCotizaciones, sethistorialCotizaciones] = useState(
@@ -44,29 +43,33 @@ export default function Historial() {
       </div>
 
       <div className=" center div-cotizador">
-        <table>
-          <thead>
-            <tr>
-              <th>Fecha de cotización</th>
-              <th>Propiedad</th>
-              <th>Ubicación</th>
-              <th>Metros cuadrados</th>
-              <th>Póliza mensual</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            {historialCotizaciones.map((historialCotizaciones, id) => (
-              <tr key={id}>
-                <td>{historialCotizaciones.fechaCotizacion}</td>
-                <td>{historialCotizaciones.propiedad}</td>
-                <td>{historialCotizaciones.ubicacion}</td>
-                <td>{historialCotizaciones.metrosCuadrados}</td>
-                <td>{historialCotizaciones.poliza}</td>
+        {historialCotizaciones.length > 0 ? (
+          <table>
+            <thead>
+              <tr>
+                <th>Fecha de cotización</th>
+                <th>Propiedad</th>
+                <th>Ubicación</th>
+                <th>Metros cuadrados</th>
+                <th>Póliza mensual</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+
+            <tbody>
+              {historialCotizaciones.map((historialCotizaciones, id) => (
+                <tr key={id}>
+                  <td>{historialCotizaciones.fechaCotizacion}</td>
+                  <td>{historialCotizaciones.propiedad}</td>
+                  <td>{historialCotizaciones.ubicacion}</td>
+                  <td>{historialCotizaciones.metrosCuadrados}</td>
+                  <td>{historialCotizaciones.poliza}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        ) : (
+          <p>No se ha cotizado aun</p>
+        )}
 
         <div className="center separador">
           <button onClick={irArriba} className="button button-outline">
